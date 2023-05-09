@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- Определенный продукт -->
+Название: {{ product.product_name }}<p>
+Описание: {{ product.product_des }}<p>
+Цена: {{ product.product_price }}<p>
+Количество на складе {{ product.product_count }}<p>
+Категория: {{ product.product_category }}<p>
+<form method="POST">
+    {% csrf_token %}
+    <input type="number" name="quantity">
+    <button>Заказать</button>
+</form>
+
+
+</body>
+</html>
