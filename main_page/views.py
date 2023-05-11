@@ -42,11 +42,13 @@ def current_category(request, pk):
 def get_exact_category(request, pk):
     # poluchaem categorii
     exact_category = models.Category.objects.get(id=pk)
+    categories = models.Category.objects.all()
 
     # vivodim product iz etoy categorii
     category_products = models.Product.objects.filter(product_category=exact_category)
 
-    return render(request, 'exact_category.html', {'category_products': category_products})
+    return render(request, 'categrory_products.html', {'category_products': category_products,
+                                                       'categories': categories})
 
 def get_exact_product(request,pk):
     product = models.Product.objects.get(id=pk)
@@ -60,14 +62,17 @@ def get_exact_product(request,pk):
                                        total_for_product = product.product_price*int(request.POST.get('quantity')))
         return redirect('/cart')
 
-    return render(request, 'exact_product.html', context)
+    return render(request, 'about_product.html', context)
 
 
 # Получить определенный продукт
 def get_user_cart(request):
     user_cart = models.UserCart.objects.filter(user_id=request.user.id)
+    total = [i.total_for_product for i in user_cart]
+    context = {'cart': user_cart,
+               'total': total}
 
-    return render(request, 'user_cart.html', {'cart': user_cart})
+    return render(request, 'user_cart.html', {'cart': user_cart}, context)
 
 
 def complete_order(request):
