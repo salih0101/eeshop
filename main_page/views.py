@@ -72,7 +72,7 @@ def get_user_cart(request):
     context = {'cart': user_cart,
                'total': total}
 
-    return render(request, 'user_cart.html', {'cart': user_cart}, context)
+    return render(request, 'user_cart.html', context)
 
 
 def complete_order(request):
