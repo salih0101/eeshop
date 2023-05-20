@@ -1,9 +1,8 @@
 from django.contrib import admin
-from .models import Category, Product, UserCart
+from .models import Category, Product, Basket
 
-
-# Показываем в админ панели
-
+#Показываем в админ панели
 admin.site.register(Category)
 admin.site.register(Product)
-admin.site.register(UserCart)
+admin.site.register(Basket)
+

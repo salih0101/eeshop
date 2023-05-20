@@ -9,7 +9,7 @@
             <div class="product-details"><!--product-details-->
                 <div class="col-sm-5">
                     <div class="view-product">
-                        <img src="/{{ product.product_image }}" alt="" /> <!--product image-->
+                        <img src="/{{ product.product_photo }}" alt="" /> <!--product image-->
                     </div>
 
                 </div>
@@ -22,7 +22,7 @@
                             <label>Quantity</label><br>
                             <form method="POST" >
                                 {% csrf_token %}
-                                <input type="number" name="quantity" min="1" max="{{ product.product_count }}" />
+                                <input type="number" name="user_product_quantity" min="1" max="{{product.product_count}}" />
                                 <button type="submit" class="btn btn-fefault cart">
                                     <i class="fa fa-shopping-cart"></i>
                                           Add to cart

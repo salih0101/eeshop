@@ -9,10 +9,10 @@
 					<div class="left-sidebar"><br>
 						<h2>Categories</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-products-->
-							{% for category in categories %}
+							{% for category in categories%}
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="/category/{{ category.id }}">{{ category.category_name }}</a></h4>
+									<h4 class="panel-title"><a href="/category/{{ category.id }}/">{{ category.category_name }}</a></h4>
 								</div>
 							</div>
 							{% endfor %}

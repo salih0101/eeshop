@@ -1,45 +1,39 @@
 from django.db import models
 
-
-# Create your models here.
-
-# Создать таблицу категорий
+# Создаем таблицу категорий
 class Category(models.Model):
-    category_name = models.CharField(max_length=75)
-    reg_date = models.DateTimeField(auto_now_add=True)
+    # Создаем колонки для таблицы
+    category_name = models.CharField(max_length=75)# Категория с именами до 75 символов
+    reg_data = models.DateTimeField(auto_now_add=True)# Добавляем дату и время
 
-    # Вывод информации в нормальном виде
+    #Выводим информацию в нормальном виде
     def __str__(self):
         return self.category_name
 
-
-# Создать таблицу для продуктов
+# Создаем таблицу для продукта
 class Product(models.Model):
     # Создаем колонки для таблицы продуктов
-    product_name = models.CharField(max_length=125)
-    product_count = models.IntegerField()
-    product_price = models.FloatField()
-    product_photo = models.ImageField(upload_to='media')
-    product_des = models.TextField()
-    product_category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    product_name = models.CharField(max_length=125) #Создаем категорию с именами
+    product_count = models.IntegerField() #Создаем категорию с количеством
+    product_price = models.FloatField() #Создаем категорию с ценой
+    product_photo = models.ImageField(upload_to='media') #Создаем категорию с фото
+    product_des = models.TextField() #Создаем категорию с описанием
+    product_category = models.ForeignKey(Category, on_delete=models.CASCADE) #прописали вызов категории и удаление товара
 
-    reg_date = models.DateTimeField(auto_now_add=True)
+    reg_date = models.DateTimeField(auto_now_add=True) #Создаем категорию с датой и временем
 
-    # Вывод информации в нормальном виде
+
+    #Вывод в нормальный виде
     def __str__(self):
         return self.product_name
 
-# Создать корзину для продуктов
-class UserCart(models.Model):
+
+class Basket(models.Model):
     user_id = models.IntegerField()
-    product = models.ForeignKey('Product', on_delete=models.CASCADE)
-    quantity = models.IntegerField()
+    user_product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    user_product_quantity = models.IntegerField()
     total_for_product = models.FloatField()
 
-    # def __str__(self):
-    #     return str(f"{self.quantity} x {self.product.name} = {self.total_for_product}")
 
     def __str__(self):
-        return str(self.product)
-
-    
+        return str(self.user_product)

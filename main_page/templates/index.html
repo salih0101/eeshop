@@ -47,7 +47,7 @@
 							<ul class="nav navbar-nav">
 								{% if user.is_authenticated %}
 									<li><a href="/">Home</a></li>
-									<li><a href="/cart"><i class="fa fa-shopping-cart"></i> Cart</a></li>
+									<li><a href="/basket"><i class="fa fa-shopping-cart"></i> Cart</a></li>
 									<li><a href="/accounts/logout/"><i class="fa fa-lock"></i> Logout</a></li>
 								{% else %}
 									<li><a href="/accounts/login/"><i class="fa fa-lock"></i> Login</a></li>
@@ -93,7 +93,7 @@
 		</div>
 	</section><!--/slider-->
 
-	<section>
+	<section>`
 		<div class="container">
 			<div class="row">
 
@@ -104,7 +104,7 @@
 							{% for category in all_categories %}
 							<div class="panel panel-default">
 								<div class="panel-heading">
-									<h4 class="panel-title"><a href="/category/{{ category.id }}">{{ category.category_name }}</a></h4>
+									<h4 class="panel-title"><a href="/category/{{ category.id }}/">{{ category.category_name }}</a></h4>
 								</div>
 							</div>
 							{% endfor %}
@@ -115,12 +115,12 @@
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
-						{% for i in products %}
+						{% for i in all_products %}
 							<div class="col-sm-4">
 								<div class="product-image-wrapper">
 									<div class="single-products">
-										<div class=".productinfo text-center">
-											<a href="/item/{{ i.id }}"><img src="{{ i.product_photo}}"></a>
+										<div class="productinfo text-center">
+											<a href="/item/{{ i.id }}"><img src="{{ i.product_photo }}"></a>
 											<h2>{{ i.product_price }} сум</h2>
 											<p>{{ i.product_name }}</p>
 											<a href="/item/{{ i.id }}" class="btn btn-default add-to-cart">Learn more</a>
