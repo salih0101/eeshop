@@ -80,7 +80,7 @@
 									<p>Скидки {{ sale.sale_percent }}% на товары {% for i in sale.sale_product.all %} {{ i.product_name }}{% endfor %}</p>
 								</div>
 								<div class="col-sm-6">
-									<img src="images/home/girl1.jpg" class="girl img-responsive" alt="" />
+									<img src="images/home/b12_damla.jpg" class="b12 img-responsive" alt="" />
 									<img src="images/home/pricing.png"  class="pricing" alt="" />
 								</div>
 							</div>
@@ -120,7 +120,7 @@
 								<div class="product-image-wrapper">
 									<div class="single-products">
 										<div class="productinfo text-center">
-											<a href="/item/{{ i.id }}"><img src="{{ i.product_photo }}"></a>
+											<a href="/item/{{ i.id }}"><img src="/{{ i.product_photo }}"></a>
 											<h2>{{ i.product_price }} сум</h2>
 											<p>{{ i.product_name }}</p>
 											<a href="/item/{{ i.id }}" class="btn btn-default add-to-cart">Learn more</a>

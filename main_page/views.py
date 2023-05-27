@@ -20,7 +20,7 @@ def index(request):
             return redirect(f'/item/{search_result.id}')
         except:
                return redirect('/')
-    return render(request,'index.html', context)
+    return render(request, 'index.html', context)
 
     # # Получаем значение введенное в поисковую строку на сайте
     # from_front= request.GET.get('exact_product')
@@ -86,7 +86,7 @@ def complete_order(request):
 
     result_message += f'\n----------\n<b>ИТОГО: {total_for_all_cart}сум</b>'
     #Отправляем админу сообщение в тг
-    bot.send_message(1186132006, result_message)
+    # bot.send_message(1186132006, result_message)
     user_cart.delete()
     return redirect('/')
 
