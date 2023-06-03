@@ -22,21 +22,6 @@ def index(request):
                return redirect('/')
     return render(request, 'index.html', context)
 
-    # # Получаем значение введенное в поисковую строку на сайте
-    # from_front= request.GET.get('exact_product')
-    #
-    # # Было ли введено что-то в поиске
-    # if from_front is not None:
-    #     all_products = models.Product.objects.filter(product_name__contains = from_front)
-
-    #Создаем словарь
-    # context = {'all_categories': all_categories,'all_products': all_products}
-
-
-
-    # Передаем на фронт
-    # return render(request,'index.html', context)
-
 
 def current_category(request, pk):
     category = Product.objects.get(id=pk)
@@ -74,6 +59,14 @@ def get_Basket(request):
     return render(request, 'user_cart.html', {'cart': basket, "total":total})
 
 
+def delete_pr_from_cart(request, pk):
+    prod_to_delete = Basket.objects.get(id=pk)
+
+    prod_to_delete.delete()
+
+    return redirect('/basket')
+
+
 def complete_order(request):
     #получвем корзину пользователя по айди пользователя
     user_cart = Basket.objects.filter(user_id = request.user.id)
@@ -86,7 +79,7 @@ def complete_order(request):
 
     result_message += f'\n----------\n<b>ИТОГО: {total_for_all_cart}сум</b>'
     #Отправляем админу сообщение в тг
-    # bot.send_message(1186132006, result_message)
+    bot.send_message(1186132006, result_message)
     user_cart.delete()
     return redirect('/')
 

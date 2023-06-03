@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title>Главная страница | ActiveBee</title>
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/prettyPhoto.css' %}" rel="stylesheet">
@@ -36,7 +36,7 @@
 								<div class="search_box pull-right">
 									<form method="POST">
 										  {% csrf_token %}
-										  <input type="text" placeholder="Search" name="search_product" />
+										  <input type="text" placeholder="Поиск" name="search_product" />
 									</form>
 								</div>
 							</div>
@@ -46,11 +46,11 @@
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
 								{% if user.is_authenticated %}
-									<li><a href="/">Home</a></li>
-									<li><a href="/basket"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-									<li><a href="/accounts/logout/"><i class="fa fa-lock"></i> Logout</a></li>
+									<li><a href="/">Главная страница</a></li>
+									<li><a href="/basket"><i class="fa fa-shopping-cart"></i> Корзина </a></li>
+									<li><a href="/accounts/logout/"><i class="fa fa-lock"></i> Выход </a></li>
 								{% else %}
-									<li><a href="/accounts/login/"><i class="fa fa-lock"></i> Login</a></li>
+									<li><a href="/accounts/login/"><i class="fa fa-lock"></i> Авторизация </a></li>
 								{% endif %}
 							</ul>
 						</div>
@@ -75,7 +75,7 @@
 							{% for sale in sales %}
 							<div class="item active">
 								<div class="col-sm-6">
-									<h1><span>E</span>-SHOPPER</h1>
+									<h1><span>Active</span>-Bee</h1>
 									<h2>{{ sale.sale_name }}</h2>
 									<p>Скидки {{ sale.sale_percent }}% на товары {% for i in sale.sale_product.all %} {{ i.product_name }}{% endfor %}</p>
 								</div>
@@ -99,7 +99,7 @@
 
 				<div class="col-sm-3">
 					<div class="left-sidebar">
-						<h2>Category</h2>
+						<h2>Категории товаров</h2>
 						<div class="panel-group category-products" id="accordian"><!--category-products-->
 							{% for category in all_categories %}
 							<div class="panel panel-default">
@@ -114,7 +114,7 @@
 {{ today }}
 				<div class="col-sm-9 padding-right">
 					<div class="features_items"><!--features_items-->
-						<h2 class="title text-center">Features Items</h2>
+						<h2 class="title text-center">Товары</h2>
 						{% for i in all_products %}
 							<div class="col-sm-4">
 								<div class="product-image-wrapper">
@@ -123,7 +123,7 @@
 											<a href="/item/{{ i.id }}"><img src="/{{ i.product_photo }}"></a>
 											<h2>{{ i.product_price }} сум</h2>
 											<p>{{ i.product_name }}</p>
-											<a href="/item/{{ i.id }}" class="btn btn-default add-to-cart">Learn more</a>
+											<a href="/item/{{ i.id }}" class="btn btn-default add-to-cart">Подробно о продукте</a>
 										</div>
 									</div>
 								</div>
@@ -141,14 +141,18 @@
 				<div class="row">
 					<div class="col-sm-2">
 						<div class="companyinfo">
-							<h2><span>e</span>-shopper</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor</p>
+							<h2><span>Active</span>Bee</h2>
+							<p>Тестовый текст
+							----------------
+							----------------
+							----------------
+							----------------</p>
 						</div>
 					</div>
 					<div class="col-sm-3">
 						<div class="address">
-							<img src="images/home/map.png" alt="" />
-							<p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
+<!--							<img src="static/images/home/map.png" alt="" />-->
+							<p> UZBEKISTAN. TASHKENT </p>
 						</div>
 					</div>
 				</div>
@@ -158,8 +162,7 @@
 		<div class="footer-bottom">
 			<div class="container">
 				<div class="row">
-					<p class="pull-left">Copyright © 2013 E-SHOPPER Inc. All rights reserved.</p>
-					<p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">Themeum</a></span></p>
+					<p class="pull-left">© 2023 ActiveBee Inc. "Все права защищены" .</p>
 				</div>
 			</div>
 		</div>
