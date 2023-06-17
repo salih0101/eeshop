@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'main_page',# добавляем приложение
 ]
 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -48,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-     # 'whitenoise.middleware.WhiteNoiseMiddleware' # Для сервера
+     'whitenoise.middleware.WhiteNoiseMiddleware' # Для сервера
 ]
 
 ROOT_URLCONF = 'online_shop.urls'

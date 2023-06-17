@@ -11,7 +11,7 @@ def index(request):
     search_bar = SearchForm()
 
 
-    context = {'all_categories': all_categories, 'all_products': all_products,"form":search_bar}
+    context = {'all_categories': all_categories, 'all_products': all_products, 'form': search_bar}
 
     if request.method == "POST":
         product_find = request.POST.get('search_product')
@@ -19,7 +19,7 @@ def index(request):
             search_result = Product.objects.get(product_name = product_find)
             return redirect(f'/item/{search_result.id}')
         except:
-               return redirect('/')
+            return redirect('/')
     return render(request, 'index.html', context)
 
 
